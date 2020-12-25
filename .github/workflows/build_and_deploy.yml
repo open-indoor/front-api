@@ -3,7 +3,7 @@ name: Build new image and Deploy it to Kubernetes
 on:
   push:
     branches:
-      - fb-github_ci
+      - master
 
 env:
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true
