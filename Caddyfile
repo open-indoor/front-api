@@ -1,0 +1,59 @@
+{$API_SERVER} {
+
+    root * /data/www
+    file_server browse
+
+    {$CADDY_TLS}
+
+    log {
+        level DEBUG
+    }
+
+    route /osm/* {
+        reverse_proxy {
+            to http://osm-api:80
+        }
+    }
+
+    route /places/* {
+     	header Access-Control-Allow-Origin *
+    	header Access-Control-Request-Method GET
+
+        reverse_proxy {
+            to http://places-api:80
+        }
+    }
+
+    route /bboxes* {
+        reverse_proxy {
+            to http://osm-api:80
+        }
+    }
+
+    route /geojson/* {
+     	header Access-Control-Allow-Origin *
+    	header Access-Control-Request-Method GET
+	    reverse_proxy {
+            to http://geojson-api:80
+        }
+    }
+
+    route /mbtiles/* {
+	    reverse_proxy {
+            to http://mbtiles-api:80
+        }
+    }
+
+    route /mbtiles-country/* {
+	    reverse_proxy {
+            to http://mbtiles-country-api:80
+        }
+    }
+
+    route /tileserver/* {
+	    reverse_proxy {
+            to http://tileserver-api:80
+        }
+    }
+
+}
