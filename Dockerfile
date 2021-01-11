@@ -15,7 +15,7 @@ RUN apk add --update-cache \
 RUN mkdir -p /front-api
 WORKDIR /front-api
 
-COPY ./Caddyfile /etc/caddy/Caddyfile
+COPY ./Caddyfile /tmp/Caddyfile
 COPY ./index.html /tmp/index.html
 
 COPY ./front-api.sh /usr/bin/front-api.sh

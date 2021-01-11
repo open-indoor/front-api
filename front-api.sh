@@ -6,12 +6,14 @@ export CADDYPATH=/data/caddy
 export API_SERVER=${API_SERVER:-${API_DOMAIN_NAME}}
 export API_URL=${API_URL:-https://${API_DOMAIN_NAME}}
 export CADDY_TLS=${CADDY_TLS:-'tls contact@openindoor.io {
-    ca ${CERTIFICATE_AUTHORITY}
+    ca {$CERTIFICATE_AUTHORITY}
 }'}
 
 env
 
-cat  /etc/caddy/Caddyfile
+cat /tmp/Caddyfile | envsubst | tee /etc/caddy/Caddyfile
+
+# cat  /etc/caddy/Caddyfile
 
 mkdir -p /data/www
 cat /tmp/index.html | envsubst | tee /data/www/index.html
