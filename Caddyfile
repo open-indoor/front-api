@@ -3,7 +3,7 @@
     root * /data/www
     file_server browse
 
-    {$CADDY_TLS}
+    ${CADDY_TLS}
 
     log {
         level DEBUG
