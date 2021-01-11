@@ -51,8 +51,6 @@ ${API_SERVER} {
     }
 
     route /tileserver/* {
-     	header Access-Control-Allow-Origin *
-    	header Access-Control-Request-Method GET
 	    reverse_proxy {
             to http://tileserver-api:80
         }
