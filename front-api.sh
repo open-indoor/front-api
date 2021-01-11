@@ -19,4 +19,6 @@ cat /tmp/index.html | envsubst | tee /data/www/index.html
 
 cat /tmp/Caddyfile | envsubst | tee /etc/caddy/Caddyfile
 
+env
+
 caddy run --watch --config /etc/caddy/Caddyfile
