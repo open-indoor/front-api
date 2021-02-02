@@ -52,12 +52,4 @@ ${API_SERVER} {
             to http://tileserver-api:80
         }
     }
-
-    route /pgamin/* {
-        uri strip_prefix pgadmin
-	    reverse_proxy {
-            to http://openindoor-pgadmin:80
-        }
-    }
-
 }
