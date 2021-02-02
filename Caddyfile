@@ -56,4 +56,10 @@ ${API_SERVER} {
         }
     }
 
+    route /adminer/* {
+	    reverse_proxy {
+            to http://openindoor-adminer:8080
+        }
+    }
+
 }
