@@ -53,10 +53,10 @@ ${API_SERVER} {
         }
     }
 
-    route /adminer/* {
-        uri strip_prefix adminer
+    route /pgamin/* {
+        uri strip_prefix pgadmin
 	    reverse_proxy {
-            to http://openindoor-adminer:8080
+            to http://openindoor-pgadmin:80
         }
     }
 
