@@ -1,8 +1,5 @@
 ${API_SERVER} {
 
-    root * /data/www
-    file_server browse
-
     ${CADDY_TLS}
 
     log {
